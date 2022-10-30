@@ -15,7 +15,7 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
   token                  = data.aws_eks_cluster_auth.cluster.token
   load_config_file       = false
-  version                = "~> 1.11"
+  version                = "~> 1.21"
 }
 
 data "aws_availability_zones" "available" {
@@ -27,7 +27,7 @@ locals {
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "2.47.0"
+  version = "2.58.0"
 
   name                 = "k8s-vpc"
   cidr                 = "172.16.0.0/16"
